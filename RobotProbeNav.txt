@@ -1,0 +1,5 @@
+Name: RobotProbeNav
+GUIName: IGTNavigator
+Dependency: OpenIGTLinkIF
+
+We talked with a young man about a photo essay titled "I am Maru (Maru Desu" at this bookstore (http://www.amazon.com/I-am-Maru-Desu/dp/B002XR5CJC). I didn't know that this cat was famous but he knew detailed about the cat very much. We bought this essay.
