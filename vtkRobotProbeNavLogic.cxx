@@ -47,7 +47,7 @@
 #include "RobotProbeNavMath.h"
 
 // 9/13/2011 ayamada
-#include "vtkMRMLTransPerinealRobotProbeRobotNode.h"
+#include "vtkMRMLIGTProbeRobotNode.h"
 #include "math.h"
 
 // 7/1/2012 ayamada
@@ -1680,7 +1680,7 @@ void vtkRobotProbeNavLogic::CalculateVirtualCenterPosition(void)
   vtkMRMLLinearTransformNode* transformNode = vtkMRMLLinearTransformNode::SafeDownCast(node);
   vtkMatrix4x4* transform = transformNode->GetMatrixTransformToParent();
 
-  // based on Init in vtkMRMLTransPerinealRobotProbeRobotNode.cxx l.1012
+  // based on Init in vtkMRMLIGTProbeRobotNode.cxx l.1012
   transform->Identity();
     
 

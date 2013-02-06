@@ -34,8 +34,8 @@ endif(NOT Slicer3_SOURCE_DIR)
 
 include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}
-  ${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeRobot
-  ${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeTemplate
+  ${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeRobot
+  ${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeTemplate
   ${CMAKE_CURRENT_SOURCE_DIR}/TransRectalRobotProbeRobot
   ${CMAKE_CURRENT_SOURCE_DIR}/Wizard
   ${CMAKE_CURRENT_SOURCE_DIR}/newmat
@@ -71,8 +71,8 @@ configure_file(
 
 file(GLOB headers 
   "${CMAKE_CURRENT_SOURCE_DIR}/*.h"
-  "${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeRobot/*.h"
-  "${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeTemplate/*.h"
+  "${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeRobot/*.h"
+  "${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeTemplate/*.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/TransRectalRobotProbeRobot/*.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/Wizard/*.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/newmat/*.h"
@@ -151,11 +151,11 @@ set(RobotProbeNav_SRCS
   #vtkMRMLRobotProbeNavNode.cxx
   #vtkMRMLRobotProbeNavManagerNode2.cxx
 
-  ${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeRobot/vtkIGTLToMRMLCoordinate.cxx
-  ${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeRobot/vtkIGTLToMRMLBrpRobotCommand.cxx
-  ${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeRobot/vtkMRMLBrpRobotCommandNode.cxx  
-  ${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeRobot/vtkMRMLTransPerinealRobotProbeRobotNode.cxx
-  ${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeTemplate/vtkMRMLTransPerinealRobotProbeTemplateNode.cxx
+  ${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeRobot/vtkIGTLToMRMLCoordinate.cxx
+  ${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeRobot/vtkIGTLToMRMLBrpRobotCommand.cxx
+  ${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeRobot/vtkMRMLBrpRobotCommandNode.cxx  
+  ${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeRobot/vtkMRMLIGTProbeRobotNode.cxx
+  ${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeTemplate/vtkMRMLIGTProbeTemplateNode.cxx
   ${CMAKE_CURRENT_SOURCE_DIR}/TransRectalRobotProbeRobot/vtkMRMLTransRectalRobotProbeRobotNode.cxx  
   ${CMAKE_CURRENT_SOURCE_DIR}/TransRectalRobotProbeRobot/vtkTransRectalFiducialCalibrationAlgo.cxx  
   ${CMAKE_CURRENT_SOURCE_DIR}/Wizard/vtkRobotProbeNavStep.cxx
@@ -170,10 +170,10 @@ set(RobotProbeNav_SRCS
   )
 
 set(RobotProbeNavIGTL_SRCS
-  ${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeRobot/igtlCoordinateMessage.cxx
-  ${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeRobot/igtlHeaderMessage.cxx
-  ${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeRobot/igtlMoveToMessage.cxx
-  ${CMAKE_CURRENT_SOURCE_DIR}/TransPerinealRobotProbeRobot/igtlSetZFrameMessage.cxx
+  ${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeRobot/igtlCoordinateMessage.cxx
+  ${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeRobot/igtlHeaderMessage.cxx
+  ${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeRobot/igtlMoveToMessage.cxx
+  ${CMAKE_CURRENT_SOURCE_DIR}/IGTProbeRobot/igtlSetZFrameMessage.cxx
 )
 
 set(RobotProbeNavNewmat_SRCS

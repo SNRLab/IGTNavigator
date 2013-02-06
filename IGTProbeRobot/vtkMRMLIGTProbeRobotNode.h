@@ -6,13 +6,13 @@
   or http://www.slicer.org/copyright/copyright.txt for details.
 
   Program:   3D Slicer
-  Module:    $RCSfile: vtkMRMLTransPerinealRobotProbeRobotNode.h,v $
+  Module:    $RCSfile: vtkMRMLIGTProbeRobotNode.h,v $
   Date:      $Date: 2006/03/19 17:12:29 $
   Version:   $Revision: 1.3 $
 
 =========================================================================auto=*/
-#ifndef __vtkMRMLTransPerinealRobotNode_h
-#define __vtkMRMLTransPerinealRobotNode_h
+#ifndef __vtkMRMLIGTNode_h
+#define __vtkMRMLIGTNode_h
 
 #include "vtkOpenIGTLinkIFWin32Header.h"
 #include "vtkMRML.h"
@@ -38,7 +38,7 @@ class vtkIGTLToMRMLCoordinate;
 class vtkIGTLToMRMLBrpRobotCommand;
 class vtkSlicerApplication;
 
-class VTK_RobotProbeNAV_EXPORT vtkMRMLTransPerinealRobotProbeRobotNode : public vtkMRMLRobotNode
+class VTK_RobotProbeNAV_EXPORT vtkMRMLIGTProbeRobotNode : public vtkMRMLRobotNode
 {
 
  public:
@@ -47,12 +47,12 @@ class VTK_RobotProbeNAV_EXPORT vtkMRMLTransPerinealRobotProbeRobotNode : public 
   // Standard methods for MRML nodes
   //----------------------------------------------------------------
 
-  static vtkMRMLTransPerinealRobotProbeRobotNode *New();
-  vtkTypeMacro(vtkMRMLTransPerinealRobotProbeRobotNode,vtkMRMLRobotNode);  
+  static vtkMRMLIGTProbeRobotNode *New();
+  vtkTypeMacro(vtkMRMLIGTProbeRobotNode,vtkMRMLRobotNode);  
 
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  virtual vtkMRMLTransPerinealRobotProbeRobotNode* CreateNodeInstance();
+  virtual vtkMRMLIGTProbeRobotNode* CreateNodeInstance();
 
   // Description:
   // Set node attributes
@@ -83,7 +83,7 @@ class VTK_RobotProbeNAV_EXPORT vtkMRMLTransPerinealRobotProbeRobotNode : public 
   // Description:
   // Get node XML tag name (like Volume, Model)
   virtual const char* GetNodeTagName()
-    {return "TransPerinealRobotProbeRobot";};
+    {return "IGTProbeRobot";};
 
   // method to propagate events generated in mrml
   virtual void ProcessMRMLEvents ( vtkObject *caller, unsigned long event, void *callData );
@@ -302,7 +302,7 @@ class VTK_RobotProbeNAV_EXPORT vtkMRMLTransPerinealRobotProbeRobotNode : public 
   virtual int PerformRegistration(vtkMRMLScalarVolumeNode* volumeNode, int param1, int param2);
 
   virtual const char* GetWorkflowStepsString()
-    {return "SetUp ZFrameCalibration PointTargeting PointVerification TransperinealRobotProbeRobotManualControl"; };
+    {return "SetUp ZFrameCalibration PointTargeting PointVerification IGTProbeRobotManualControl"; };
 
   
   
@@ -321,10 +321,10 @@ class VTK_RobotProbeNAV_EXPORT vtkMRMLTransPerinealRobotProbeRobotNode : public 
   
  protected:
 
-  vtkMRMLTransPerinealRobotProbeRobotNode();
-  virtual ~vtkMRMLTransPerinealRobotProbeRobotNode();
-  vtkMRMLTransPerinealRobotProbeRobotNode(const vtkMRMLTransPerinealRobotProbeRobotNode&);
-  void operator=(const vtkMRMLTransPerinealRobotProbeRobotNode&);
+  vtkMRMLIGTProbeRobotNode();
+  virtual ~vtkMRMLIGTProbeRobotNode();
+  vtkMRMLIGTProbeRobotNode(const vtkMRMLIGTProbeRobotNode&);
+  void operator=(const vtkMRMLIGTProbeRobotNode&);
 
   ///////////
 

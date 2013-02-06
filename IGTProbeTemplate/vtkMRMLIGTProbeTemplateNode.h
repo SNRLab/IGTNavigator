@@ -6,13 +6,13 @@
   or http://www.slicer.org/copyright/copyright.txt for details.
 
   Program:   3D Slicer
-  Module:    $RCSfile: vtkMRMLTransPerinealRobotProbeRobotNode.h,v $
+  Module:    $RCSfile: vtkMRMLIGTProbeRobotNode.h,v $
   Date:      $Date: 2006/03/19 17:12:29 $
   Version:   $Revision: 1.3 $
 
 =========================================================================auto=*/
-#ifndef __vtkMRMLTransPerinealRobotProbeTemplateNode_h
-#define __vtkMRMLTransPerinealRobotProbeTemplateNode_h
+#ifndef __vtkMRMLIGTProbeTemplateNode_h
+#define __vtkMRMLIGTProbeTemplateNode_h
 
 #include "vtkOpenIGTLinkIFWin32Header.h"
 #include "vtkMRML.h"
@@ -36,7 +36,7 @@ class vtkTransform;
 class vtkIGTLToMRMLCoordinate;
 class vtkSlicerApplication;
 
-class VTK_RobotProbeNAV_EXPORT vtkMRMLTransPerinealRobotProbeTemplateNode : public vtkMRMLRobotNode
+class VTK_RobotProbeNAV_EXPORT vtkMRMLIGTProbeTemplateNode : public vtkMRMLRobotNode
 {
 
  public:
@@ -45,12 +45,12 @@ class VTK_RobotProbeNAV_EXPORT vtkMRMLTransPerinealRobotProbeTemplateNode : publ
   // Standard methods for MRML nodes
   //----------------------------------------------------------------
 
-  static vtkMRMLTransPerinealRobotProbeTemplateNode *New();
-  vtkTypeMacro(vtkMRMLTransPerinealRobotProbeTemplateNode,vtkMRMLRobotNode);  
+  static vtkMRMLIGTProbeTemplateNode *New();
+  vtkTypeMacro(vtkMRMLIGTProbeTemplateNode,vtkMRMLRobotNode);  
 
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  virtual vtkMRMLTransPerinealRobotProbeTemplateNode* CreateNodeInstance();
+  virtual vtkMRMLIGTProbeTemplateNode* CreateNodeInstance();
 
   // Description:
   // Set node attributes
@@ -81,7 +81,7 @@ class VTK_RobotProbeNAV_EXPORT vtkMRMLTransPerinealRobotProbeTemplateNode : publ
   // Description:
   // Get node XML tag name (like Volume, Model)
   virtual const char* GetNodeTagName()
-    {return "TransPerinealRobotProbeTemplate";};
+    {return "IGTProbeTemplate";};
 
   // method to propagate events generated in mrml
   virtual void ProcessMRMLEvents ( vtkObject *caller, unsigned long event, void *callData );
@@ -171,10 +171,10 @@ class VTK_RobotProbeNAV_EXPORT vtkMRMLTransPerinealRobotProbeTemplateNode : publ
 
  protected:
 
-  vtkMRMLTransPerinealRobotProbeTemplateNode();
-  virtual ~vtkMRMLTransPerinealRobotProbeTemplateNode();
-  vtkMRMLTransPerinealRobotProbeTemplateNode(const vtkMRMLTransPerinealRobotProbeTemplateNode&);
-  void operator=(const vtkMRMLTransPerinealRobotProbeTemplateNode&);
+  vtkMRMLIGTProbeTemplateNode();
+  virtual ~vtkMRMLIGTProbeTemplateNode();
+  vtkMRMLIGTProbeTemplateNode(const vtkMRMLIGTProbeTemplateNode&);
+  void operator=(const vtkMRMLIGTProbeTemplateNode&);
 
   ///////////
 

@@ -58,7 +58,7 @@
 #include "vtkKWMultiColumnListWithScrollbars.h"
 #include "vtkKWCheckButton.h"
 
-#include "vtkMRMLTransPerinealRobotProbeTemplateNode.h"
+#include "vtkMRMLIGTProbeTemplateNode.h"
 
 const char TARGET_INDEX_ATTR[]="TARGET_IND";
 
@@ -1126,8 +1126,8 @@ void vtkRobotProbeNavStepTargetingTemplate::UpdateGUI()
   */
     if (this->GetRobotProbeNavManager()!=NULL && this->Message)
       {
-      vtkMRMLTransPerinealRobotProbeTemplateNode* robot;
-      robot = vtkMRMLTransPerinealRobotProbeTemplateNode::SafeDownCast(this->GetRobotProbeNavManager()->GetRobotNode());
+      vtkMRMLIGTProbeTemplateNode* robot;
+      robot = vtkMRMLIGTProbeTemplateNode::SafeDownCast(this->GetRobotProbeNavManager()->GetRobotNode());
       if (robot)
         {
         this->Message->SetText(robot->GetScreenMessage());
@@ -1159,8 +1159,8 @@ void vtkRobotProbeNavStepTargetingTemplate::UpdateGUI()
 //---------------------------------------------------------------------------
 void vtkRobotProbeNavStepTargetingTemplate::ShowNeedle(bool show)
 {
-  vtkMRMLTransPerinealRobotProbeTemplateNode* robotNode = 
-    vtkMRMLTransPerinealRobotProbeTemplateNode::SafeDownCast(this->GetRobotProbeNavManager()->GetRobotNode());
+  vtkMRMLIGTProbeTemplateNode* robotNode = 
+    vtkMRMLIGTProbeTemplateNode::SafeDownCast(this->GetRobotProbeNavManager()->GetRobotNode());
 
   if (robotNode == NULL)
     return;
@@ -1183,8 +1183,8 @@ void vtkRobotProbeNavStepTargetingTemplate::ShowNeedle(bool show)
 //---------------------------------------------------------------------------
 void vtkRobotProbeNavStepTargetingTemplate::ShowTemplate(bool show)
 {
-  vtkMRMLTransPerinealRobotProbeTemplateNode* robotNode = 
-    vtkMRMLTransPerinealRobotProbeTemplateNode::SafeDownCast(this->GetRobotProbeNavManager()->GetRobotNode());
+  vtkMRMLIGTProbeTemplateNode* robotNode = 
+    vtkMRMLIGTProbeTemplateNode::SafeDownCast(this->GetRobotProbeNavManager()->GetRobotNode());
 
   if (robotNode == NULL)
     return;

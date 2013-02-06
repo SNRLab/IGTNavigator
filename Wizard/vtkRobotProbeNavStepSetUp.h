@@ -26,7 +26,7 @@ class vtkKWCheckButton;
 class vtkKWPushButton;
 class vtkKWLabel;
 class vtkSlicerNodeSelectorWidget;
-class vtkMRMLTransPerinealRobotProbeRobotNode;
+class vtkMRMLIGTProbeRobotNode;
 
 class VTK_RobotProbeNAV_EXPORT vtkRobotProbeNavStepSetUp :
   public vtkRobotProbeNavStep
@@ -49,7 +49,7 @@ protected:
   vtkRobotProbeNavStepSetUp();
   ~vtkRobotProbeNavStepSetUp();
 
-  vtkMRMLTransPerinealRobotProbeRobotNode* GetRobotNode();
+  vtkMRMLIGTProbeRobotNode* GetRobotNode();
 
   // GUI Widgets
  

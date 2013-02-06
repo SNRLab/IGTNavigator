@@ -88,8 +88,8 @@
 
 #include "vtkMRMLRobotProbeNavManagerNode.h"
 #include "vtkMRMLTransRectalRobotProbeRobotNode.h"
-#include "vtkMRMLTransPerinealRobotProbeRobotNode.h"
-#include "vtkMRMLTransPerinealRobotProbeTemplateNode.h"
+#include "vtkMRMLIGTProbeRobotNode.h"
+#include "vtkMRMLIGTProbeTemplateNode.h"
 #include "vtkSlicerSecondaryViewerWindow.h"
 #include "vtkSlicerViewerWidget.h"
 #include "vtkMRMLViewNode.h"
@@ -1136,8 +1136,8 @@ void vtkRobotProbeNavGUI::Init()
     this->GetMRMLScene()->RegisterNodeClass( vtkSmartPointer< vtkMRMLRobotProbeNavManagerNode >::New() );
     this->GetMRMLScene()->RegisterNodeClass( vtkSmartPointer< vtkMRMLRobotDisplayNode >::New() );
     this->GetMRMLScene()->RegisterNodeClass( vtkSmartPointer< vtkMRMLTransRectalRobotProbeRobotNode >::New() );
-    this->GetMRMLScene()->RegisterNodeClass( vtkSmartPointer< vtkMRMLTransPerinealRobotProbeRobotNode >::New() );    
-    this->GetMRMLScene()->RegisterNodeClass( vtkSmartPointer< vtkMRMLTransPerinealRobotProbeTemplateNode >::New() );    
+    this->GetMRMLScene()->RegisterNodeClass( vtkSmartPointer< vtkMRMLIGTProbeRobotNode >::New() );    
+    this->GetMRMLScene()->RegisterNodeClass( vtkSmartPointer< vtkMRMLIGTProbeTemplateNode >::New() );    
   }
 
 }
@@ -1509,7 +1509,7 @@ void vtkRobotProbeNavGUI::BuildGUIForConfigurationFrame ()
   this->RobotSelectorWidget->SetParent(configurationFrame->GetFrame());
   this->RobotSelectorWidget->Create(); 
   // 3/8/2012 ayamada
-  this->RobotSelectorWidget->AddNodeClass("vtkMRMLTransPerinealRobotProbeRobotNode", NULL, NULL, "IGT robot");
+  this->RobotSelectorWidget->AddNodeClass("vtkMRMLIGTProbeRobotNode", NULL, NULL, "IGT robot");
   this->RobotSelectorWidget->SetMRMLScene(this->GetMRMLScene());
   this->RobotSelectorWidget->SetBorderWidth(2);
   this->RobotSelectorWidget->GetWidget()->GetWidget()->IndicatorVisibilityOff();
@@ -2272,7 +2272,7 @@ void vtkRobotProbeNavGUI::UpdateWorkflowSteps()
       targetingStep->SetTitleBackgroundColor(138.0/255.0, 165.0/255.0, 111.0/255.0);
       newStep=targetingStep;
       }
-    else if (!stepName.compare("TransperinealRobotProbeRobotManualControl"))
+    else if (!stepName.compare("IGTProbeRobotManualControl"))
     {
       // 7/1/2012 ayamada
       vtkRobotProbeNavManualControlStep* manualStep = vtkRobotProbeNavManualControlStep::New();

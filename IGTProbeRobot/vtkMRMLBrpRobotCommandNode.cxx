@@ -68,7 +68,7 @@ vtkMRMLBrpRobotCommandNode::vtkMRMLBrpRobotCommandNode()
   this->StepToCommandMap["ZFrameCalibration"]="REGISTRATION";
   this->StepToCommandMap["PointTargeting"]="TARGETING";
   this->StepToCommandMap["PointVerification"]="MANUAL";
-  this->StepToCommandMap["TransperinealRobotProbeRobotManualControl"]="PLANNING";
+  this->StepToCommandMap["IGTProbeRobotManualControl"]="PLANNING";
 }
 
 

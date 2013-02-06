@@ -34,7 +34,7 @@
 #include "vtkOpenIGTLinkIFGUI.h"
 
 #include "vtkMRMLRobotNode.h"
-#include "vtkMRMLTransPerinealRobotProbeRobotNode.h"
+#include "vtkMRMLIGTProbeRobotNode.h"
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkRobotProbeNavStepSetUpTemplate);

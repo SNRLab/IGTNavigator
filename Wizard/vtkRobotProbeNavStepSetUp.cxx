@@ -34,7 +34,7 @@
 #include "vtkOpenIGTLinkIFGUI.h"
 
 #include "vtkMRMLRobotNode.h"
-#include "vtkMRMLTransPerinealRobotProbeRobotNode.h"
+#include "vtkMRMLIGTProbeRobotNode.h"
 
 // 8/16/2011 ayamada
 //#include "vtkCornerAnnotation.h"
@@ -252,7 +252,7 @@ void vtkRobotProbeNavStepSetUp::ProcessGUIEvents( vtkObject *caller,
                                          unsigned long event, void *callData )
 {
 
-  vtkMRMLTransPerinealRobotProbeRobotNode* robotNode=GetRobotNode();
+  vtkMRMLIGTProbeRobotNode* robotNode=GetRobotNode();
 
   if (this->RobotConnectorSelector == vtkSlicerNodeSelectorWidget::SafeDownCast(caller)
       && (event == vtkSlicerNodeSelectorWidget::NewNodeEvent || event == vtkSlicerNodeSelectorWidget::NodeSelectedEvent))
@@ -363,13 +363,13 @@ void vtkRobotProbeNavStepSetUp::ProcessGUIEvents( vtkObject *caller,
 
 }
 
-vtkMRMLTransPerinealRobotProbeRobotNode* vtkRobotProbeNavStepSetUp::GetRobotNode()
+vtkMRMLIGTProbeRobotNode* vtkRobotProbeNavStepSetUp::GetRobotNode()
 {
   if (this->RobotProbeNavManager==NULL)
   {
     return NULL;
   }
-  vtkMRMLTransPerinealRobotProbeRobotNode* robotNode = vtkMRMLTransPerinealRobotProbeRobotNode::SafeDownCast(this->RobotProbeNavManager->GetRobotNode());
+  vtkMRMLIGTProbeRobotNode* robotNode = vtkMRMLIGTProbeRobotNode::SafeDownCast(this->RobotProbeNavManager->GetRobotNode());
   return robotNode;
 }
 

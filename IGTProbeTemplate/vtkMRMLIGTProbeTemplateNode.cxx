@@ -6,7 +6,7 @@ See Doc/copyright/copyright.txt
 or http://www.slicer.org/copyright/copyright.txt for details.
 
 Program:   3D Slicer
-Module:    $RCSfile: vtkMRMLTransPerinealRobotProbeTemplateNode.cxx,v $
+Module:    $RCSfile: vtkMRMLIGTProbeTemplateNode.cxx,v $
 Date:      $Date: 2006/03/17 15:10:10 $
 Version:   $Revision: 1.2 $
 
@@ -14,7 +14,7 @@ Version:   $Revision: 1.2 $
 
 #include "vtkObjectFactory.h"
 
-#include "vtkMRMLTransPerinealRobotProbeTemplateNode.h"
+#include "vtkMRMLIGTProbeTemplateNode.h"
 #include "vtkMRMLScene.h"
 
 #include "vtkOpenIGTLinkIFGUI.h"
@@ -68,33 +68,33 @@ static const char STATUS_SCANNER_OFF[]="Scanner: OFF";
 static const char STATUS_SCANNER_ON[]="Scanner: ON";
 
 //------------------------------------------------------------------------------
-vtkMRMLTransPerinealRobotProbeTemplateNode* vtkMRMLTransPerinealRobotProbeTemplateNode::New()
+vtkMRMLIGTProbeTemplateNode* vtkMRMLIGTProbeTemplateNode::New()
 {
   // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMRMLTransPerinealRobotProbeTemplateNode");
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMRMLIGTProbeTemplateNode");
   if(ret)
     {
-      return (vtkMRMLTransPerinealRobotProbeTemplateNode*)ret;
+      return (vtkMRMLIGTProbeTemplateNode*)ret;
     }
   // If the factory was unable to create the object, then create it here.
-  return new vtkMRMLTransPerinealRobotProbeTemplateNode;
+  return new vtkMRMLIGTProbeTemplateNode;
 }
 
 //----------------------------------------------------------------------------
-vtkMRMLTransPerinealRobotProbeTemplateNode* vtkMRMLTransPerinealRobotProbeTemplateNode::CreateNodeInstance()
+vtkMRMLIGTProbeTemplateNode* vtkMRMLIGTProbeTemplateNode::CreateNodeInstance()
 {
   // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMRMLTransPerinealRobotProbeTemplateNode");
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMRMLIGTProbeTemplateNode");
   if(ret)
     {
-      return (vtkMRMLTransPerinealRobotProbeTemplateNode*)ret;
+      return (vtkMRMLIGTProbeTemplateNode*)ret;
     }
   // If the factory was unable to create the object, then create it here.
-  return new vtkMRMLTransPerinealRobotProbeTemplateNode;
+  return new vtkMRMLIGTProbeTemplateNode;
 }
 
 //----------------------------------------------------------------------------
-vtkMRMLTransPerinealRobotProbeTemplateNode::vtkMRMLTransPerinealRobotProbeTemplateNode()
+vtkMRMLIGTProbeTemplateNode::vtkMRMLIGTProbeTemplateNode()
 {
   // Node references
 
@@ -147,7 +147,7 @@ vtkMRMLTransPerinealRobotProbeTemplateNode::vtkMRMLTransPerinealRobotProbeTempla
 
 
 //----------------------------------------------------------------------------
-vtkMRMLTransPerinealRobotProbeTemplateNode::~vtkMRMLTransPerinealRobotProbeTemplateNode()
+vtkMRMLIGTProbeTemplateNode::~vtkMRMLIGTProbeTemplateNode()
 {
 
   if (this->ScannerConnectorNodeID) 
@@ -183,7 +183,7 @@ vtkMRMLTransPerinealRobotProbeTemplateNode::~vtkMRMLTransPerinealRobotProbeTempl
 
 
 //----------------------------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::WriteXML(ostream& of, int nIndent)
+void vtkMRMLIGTProbeTemplateNode::WriteXML(ostream& of, int nIndent)
 {
   // Start by having the superclass write its information
   Superclass::WriteXML(of, nIndent);
@@ -225,7 +225,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::WriteXML(ostream& of, int nInde
 
 
 //----------------------------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::ReadXMLAttributes(const char** atts)
+void vtkMRMLIGTProbeTemplateNode::ReadXMLAttributes(const char** atts)
 {
   Superclass::ReadXMLAttributes(atts);
 
@@ -276,12 +276,12 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::ReadXMLAttributes(const char** 
 
 //----------------------------------------------------------------------------
 // Copy the node's attributes to this object.
-void vtkMRMLTransPerinealRobotProbeTemplateNode::Copy(vtkMRMLNode *anode)
+void vtkMRMLIGTProbeTemplateNode::Copy(vtkMRMLNode *anode)
 {  
   int disabledModify = this->StartModify();
 
   Superclass::Copy(anode);
-  vtkMRMLTransPerinealRobotProbeTemplateNode *node = vtkMRMLTransPerinealRobotProbeTemplateNode::SafeDownCast(anode);
+  vtkMRMLIGTProbeTemplateNode *node = vtkMRMLIGTProbeTemplateNode::SafeDownCast(anode);
   if (node!=NULL)
   {
     this->SetAndObserveScannerConnectorNodeID(NULL); // remove observer
@@ -313,7 +313,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::Copy(vtkMRMLNode *anode)
 }
 
 //-----------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::UpdateReferences()
+void vtkMRMLIGTProbeTemplateNode::UpdateReferences()
 {
   Superclass::UpdateReferences();
 
@@ -350,7 +350,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::UpdateReferences()
 }
 
 //----------------------------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::UpdateReferenceID(const char *oldID, const char *newID)
+void vtkMRMLIGTProbeTemplateNode::UpdateReferenceID(const char *oldID, const char *newID)
 {
   Superclass::UpdateReferenceID(oldID, newID);
   if (this->ScannerConnectorNodeID && !strcmp(oldID, this->ScannerConnectorNodeID))
@@ -386,7 +386,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::UpdateReferenceID(const char *o
 }
 
 //-----------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::UpdateScene(vtkMRMLScene *scene)
+void vtkMRMLIGTProbeTemplateNode::UpdateScene(vtkMRMLScene *scene)
 {
    Superclass::UpdateScene(scene);
    this->SetAndObserveScannerConnectorNodeID(this->GetScannerConnectorNodeID());
@@ -399,7 +399,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::UpdateScene(vtkMRMLScene *scene
 }
 
 //-----------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::ProcessMRMLEvents( vtkObject *caller, unsigned long event, void *callData )
+void vtkMRMLIGTProbeTemplateNode::ProcessMRMLEvents( vtkObject *caller, unsigned long event, void *callData )
 {
   Superclass::ProcessMRMLEvents(caller, event, callData);
 
@@ -430,13 +430,13 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::ProcessMRMLEvents( vtkObject *c
 
 
 //----------------------------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::PrintSelf(ostream& os, vtkIndent indent)
+void vtkMRMLIGTProbeTemplateNode::PrintSelf(ostream& os, vtkIndent indent)
 {
   Superclass::PrintSelf(os,indent);
 }
 
 
-int vtkMRMLTransPerinealRobotProbeTemplateNode::Init(vtkSlicerApplication* app, const char* moduleShareDir)
+int vtkMRMLIGTProbeTemplateNode::Init(vtkSlicerApplication* app, const char* moduleShareDir)
 { 
   this->Superclass::Init(app, moduleShareDir);
 
@@ -582,14 +582,14 @@ int vtkMRMLTransPerinealRobotProbeTemplateNode::Init(vtkSlicerApplication* app, 
 }
 
 
-int vtkMRMLTransPerinealRobotProbeTemplateNode::OnTimer()
+int vtkMRMLIGTProbeTemplateNode::OnTimer()
 {
     return 1;
 }
 
 
 //---------------------------------------------------------------------------
-int vtkMRMLTransPerinealRobotProbeTemplateNode::SendZFrame()
+int vtkMRMLIGTProbeTemplateNode::SendZFrame()
 {
 
   std::cerr << "int vtkRobotProbeNavLogic::SendZFrame(): " << this->GetZFrameTransformNodeID() << std::endl;
@@ -600,7 +600,7 @@ int vtkMRMLTransPerinealRobotProbeTemplateNode::SendZFrame()
 
 
 //----------------------------------------------------------------------------
-const char* vtkMRMLTransPerinealRobotProbeTemplateNode::AddWorkspaceModel(const char* nodeName)
+const char* vtkMRMLIGTProbeTemplateNode::AddWorkspaceModel(const char* nodeName)
 {
   vtkMRMLModelNode           *workspaceModel;
   vtkMRMLModelDisplayNode    *workspaceDisp;
@@ -678,7 +678,7 @@ const char* vtkMRMLTransPerinealRobotProbeTemplateNode::AddWorkspaceModel(const 
 
 
 //----------------------------------------------------------------------------
-const char* vtkMRMLTransPerinealRobotProbeTemplateNode::AddZFrameModel(const char* nodeName)
+const char* vtkMRMLIGTProbeTemplateNode::AddZFrameModel(const char* nodeName)
 {
   vtkMRMLModelNode           *zframeModel;
   vtkMRMLModelDisplayNode    *zframeDisp;
@@ -876,7 +876,7 @@ const char* vtkMRMLTransPerinealRobotProbeTemplateNode::AddZFrameModel(const cha
 
 
 //----------------------------------------------------------------------------
-const char* vtkMRMLTransPerinealRobotProbeTemplateNode::AddTemplateModel(const char* nodeName)
+const char* vtkMRMLIGTProbeTemplateNode::AddTemplateModel(const char* nodeName)
 {
 
   vtkMRMLModelNode           *model;
@@ -960,7 +960,7 @@ const char* vtkMRMLTransPerinealRobotProbeTemplateNode::AddTemplateModel(const c
 
 
 //----------------------------------------------------------------------------
-const char* vtkMRMLTransPerinealRobotProbeTemplateNode::AddNeedleModel(const char* nodeName, double length, double diameter)
+const char* vtkMRMLIGTProbeTemplateNode::AddNeedleModel(const char* nodeName, double length, double diameter)
 {
 
   vtkMRMLModelNode           *needleModel;
@@ -1043,7 +1043,7 @@ const char* vtkMRMLTransPerinealRobotProbeTemplateNode::AddNeedleModel(const cha
 
 
 //----------------------------------------------------------------------------
-int vtkMRMLTransPerinealRobotProbeTemplateNode::PerformRegistration(vtkMRMLScalarVolumeNode* volumeNode)
+int vtkMRMLIGTProbeTemplateNode::PerformRegistration(vtkMRMLScalarVolumeNode* volumeNode)
 {
   vtkZFrameRobotToImageRegistration* registration = vtkZFrameRobotToImageRegistration::New();
   registration->SetFiducialVolume(volumeNode);
@@ -1060,7 +1060,7 @@ int vtkMRMLTransPerinealRobotProbeTemplateNode::PerformRegistration(vtkMRMLScala
 
 
 //----------------------------------------------------------------------------
-int vtkMRMLTransPerinealRobotProbeTemplateNode::PerformRegistration(vtkMRMLScalarVolumeNode* volumeNode, int param1, int param2)
+int vtkMRMLIGTProbeTemplateNode::PerformRegistration(vtkMRMLScalarVolumeNode* volumeNode, int param1, int param2)
 {
   vtkZFrameRobotToImageRegistration* registration = vtkZFrameRobotToImageRegistration::New();
   registration->SetFiducialVolume(volumeNode);
@@ -1078,7 +1078,7 @@ int vtkMRMLTransPerinealRobotProbeTemplateNode::PerformRegistration(vtkMRMLScala
 
 
 //----------------------------------------------------------------------------
-int vtkMRMLTransPerinealRobotProbeTemplateNode::MoveTo(const char *transformNodeId)
+int vtkMRMLIGTProbeTemplateNode::MoveTo(const char *transformNodeId)
 {
   vtkMRMLLinearTransformNode* transformNode = vtkMRMLLinearTransformNode::SafeDownCast(this->Scene->GetNodeByID(transformNodeId));
   vtkMatrix4x4* transform = transformNode->GetMatrixTransformToParent();
@@ -1130,13 +1130,13 @@ int vtkMRMLTransPerinealRobotProbeTemplateNode::MoveTo(const char *transformNode
 
 
 //----------------------------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::SwitchStep(const char *stepName)
+void vtkMRMLIGTProbeTemplateNode::SwitchStep(const char *stepName)
 {
 }
 
 
 //----------------------------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveScannerConnectorNodeID(const char *nodeId)
+void vtkMRMLIGTProbeTemplateNode::SetAndObserveScannerConnectorNodeID(const char *nodeId)
 {
   if (nodeId==this->GetScannerConnectorNodeID())
   {
@@ -1159,7 +1159,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveScannerConnectorNo
 
 
 //----------------------------------------------------------------------------
-vtkMRMLIGTLConnectorNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetScannerConnectorNode()
+vtkMRMLIGTLConnectorNode* vtkMRMLIGTProbeTemplateNode::GetScannerConnectorNode()
 {
   if (this->GetScene() && this->ScannerConnectorNodeID != NULL )
     {    
@@ -1169,7 +1169,7 @@ vtkMRMLIGTLConnectorNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetScanner
 }
 
 //----------------------------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveZFrameModelNodeID(const char *nodeId)
+void vtkMRMLIGTProbeTemplateNode::SetAndObserveZFrameModelNodeID(const char *nodeId)
 {
   vtkSetAndObserveMRMLObjectMacro(this->ZFrameModelNode, NULL);
   this->SetZFrameModelNodeID(nodeId);
@@ -1180,7 +1180,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveZFrameModelNodeID(
 }
 
 //----------------------------------------------------------------------------
-vtkMRMLModelNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetZFrameModelNode()
+vtkMRMLModelNode* vtkMRMLIGTProbeTemplateNode::GetZFrameModelNode()
 {
   if (this->GetScene() && this->ZFrameModelNodeID != NULL )
     {    
@@ -1191,7 +1191,7 @@ vtkMRMLModelNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetZFrameModelNode
 
 
 //----------------------------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveWorkspaceModelNodeID(const char *nodeId)
+void vtkMRMLIGTProbeTemplateNode::SetAndObserveWorkspaceModelNodeID(const char *nodeId)
 {
   vtkSetAndObserveMRMLObjectMacro(this->WorkspaceModelNode, NULL);
   this->SetWorkspaceModelNodeID(nodeId);
@@ -1202,7 +1202,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveWorkspaceModelNode
 }
 
 //----------------------------------------------------------------------------
-vtkMRMLModelNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetWorkspaceModelNode()
+vtkMRMLModelNode* vtkMRMLIGTProbeTemplateNode::GetWorkspaceModelNode()
 {
   if (this->GetScene() && this->WorkspaceModelNodeID != NULL )
     {    
@@ -1213,7 +1213,7 @@ vtkMRMLModelNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetWorkspaceModelN
 
 
 //----------------------------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveZFrameTransformNodeID(const char *nodeId)
+void vtkMRMLIGTProbeTemplateNode::SetAndObserveZFrameTransformNodeID(const char *nodeId)
 {
   vtkSetAndObserveMRMLObjectMacro(this->ZFrameTransformNode, NULL);
   this->SetZFrameTransformNodeID(nodeId);
@@ -1225,7 +1225,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveZFrameTransformNod
 
 
 //----------------------------------------------------------------------------
-vtkMRMLLinearTransformNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetZFrameTransformNode()
+vtkMRMLLinearTransformNode* vtkMRMLIGTProbeTemplateNode::GetZFrameTransformNode()
 {
   if (this->GetScene() && this->ZFrameTransformNodeID != NULL )
     {    
@@ -1235,7 +1235,7 @@ vtkMRMLLinearTransformNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetZFram
 }
 
 ////----------------------------------------------------------------------------
-//void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveTemplateTransformNodeID(const char *nodeId)
+//void vtkMRMLIGTProbeTemplateNode::SetAndObserveTemplateTransformNodeID(const char *nodeId)
 //{
 //  vtkSetAndObserveMRMLObjectMacro(this->TemplateTransformNode, NULL);
 //  this->SetTemplateTransformNodeID(nodeId);
@@ -1247,7 +1247,7 @@ vtkMRMLLinearTransformNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetZFram
 
 
 ////----------------------------------------------------------------------------
-//vtkMRMLLinearTransformNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetTemplateTransformNode()
+//vtkMRMLLinearTransformNode* vtkMRMLIGTProbeTemplateNode::GetTemplateTransformNode()
 //{
 //  if (this->GetScene() && this->TemplateTransformNodeID != NULL )
 //    {    
@@ -1258,7 +1258,7 @@ vtkMRMLLinearTransformNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetZFram
 
 
 //----------------------------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveTemplateModelNodeID(const char *nodeId)
+void vtkMRMLIGTProbeTemplateNode::SetAndObserveTemplateModelNodeID(const char *nodeId)
 {
   vtkSetAndObserveMRMLObjectMacro(this->TemplateModelNode, NULL);
   this->SetTemplateModelNodeID(nodeId);
@@ -1269,7 +1269,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveTemplateModelNodeI
 }
 
 //----------------------------------------------------------------------------
-vtkMRMLModelNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetTemplateModelNode()
+vtkMRMLModelNode* vtkMRMLIGTProbeTemplateNode::GetTemplateModelNode()
 {
   if (this->GetScene() && this->TemplateModelNodeID != NULL )
     {    
@@ -1280,7 +1280,7 @@ vtkMRMLModelNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetTemplateModelNo
 
 
 //----------------------------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveActiveNeedleModelNodeID(const char *nodeId)
+void vtkMRMLIGTProbeTemplateNode::SetAndObserveActiveNeedleModelNodeID(const char *nodeId)
 {
   vtkSetAndObserveMRMLObjectMacro(this->ActiveNeedleModelNode, NULL);
   this->SetActiveNeedleModelNodeID(nodeId);
@@ -1291,7 +1291,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveActiveNeedleModelN
 }
 
 //----------------------------------------------------------------------------
-vtkMRMLModelNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetActiveNeedleModelNode()
+vtkMRMLModelNode* vtkMRMLIGTProbeTemplateNode::GetActiveNeedleModelNode()
 {
   if (this->GetScene() && this->ActiveNeedleModelNodeID != NULL )
     {    
@@ -1301,7 +1301,7 @@ vtkMRMLModelNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetActiveNeedleMod
 }
 
 //----------------------------------------------------------------------------
-void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveActiveNeedleTransformNodeID(const char *nodeId)
+void vtkMRMLIGTProbeTemplateNode::SetAndObserveActiveNeedleTransformNodeID(const char *nodeId)
 {
   vtkSetAndObserveMRMLObjectMacro(this->ActiveNeedleTransformNode, NULL);
   this->SetActiveNeedleTransformNodeID(nodeId);
@@ -1313,7 +1313,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::SetAndObserveActiveNeedleTransf
 
 
 //----------------------------------------------------------------------------
-vtkMRMLLinearTransformNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetActiveNeedleTransformNode()
+vtkMRMLLinearTransformNode* vtkMRMLIGTProbeTemplateNode::GetActiveNeedleTransformNode()
 {
   if (this->GetScene() && this->ActiveNeedleTransformNodeID != NULL )
     {    
@@ -1323,7 +1323,7 @@ vtkMRMLLinearTransformNode* vtkMRMLTransPerinealRobotProbeTemplateNode::GetActiv
 }
 
 //----------------------------------------------------------------------------
-std::string vtkMRMLTransPerinealRobotProbeTemplateNode::GetTargetInfoText(vtkRobotProbeNavTargetDescriptor *targetDesc, NeedleDescriptorStruct *needle)
+std::string vtkMRMLIGTProbeTemplateNode::GetTargetInfoText(vtkRobotProbeNavTargetDescriptor *targetDesc, NeedleDescriptorStruct *needle)
 {
   // :TODO: construct a string that contains useful information for the active target (reachable, etc.)
   return "";
@@ -1331,7 +1331,7 @@ std::string vtkMRMLTransPerinealRobotProbeTemplateNode::GetTargetInfoText(vtkRob
 
 
 //----------------------------------------------------------------------------
-int vtkMRMLTransPerinealRobotProbeTemplateNode::GetHoleTransform(int i, int j, vtkMatrix4x4* matrix)
+int vtkMRMLIGTProbeTemplateNode::GetHoleTransform(int i, int j, vtkMatrix4x4* matrix)
 {
   if (matrix == NULL)
     {
@@ -1374,7 +1374,7 @@ int vtkMRMLTransPerinealRobotProbeTemplateNode::GetHoleTransform(int i, int j, v
 
 
 //----------------------------------------------------------------------------
-int vtkMRMLTransPerinealRobotProbeTemplateNode::GetNeedleTransform(int i, int j, double length, vtkMatrix4x4* matrix)
+int vtkMRMLIGTProbeTemplateNode::GetNeedleTransform(int i, int j, double length, vtkMatrix4x4* matrix)
 {
   if (matrix == NULL)
     {
@@ -1386,7 +1386,7 @@ int vtkMRMLTransPerinealRobotProbeTemplateNode::GetNeedleTransform(int i, int j,
  
 
 // 9/14/2011 ayamada
-void vtkMRMLTransPerinealRobotProbeTemplateNode::sendImagePositionData2(void)
+void vtkMRMLIGTProbeTemplateNode::sendImagePositionData2(void)
 {
  
   
@@ -1414,7 +1414,7 @@ void vtkMRMLTransPerinealRobotProbeTemplateNode::sendImagePositionData2(void)
 
 
 //----------------------------------------------------------------------------
-int vtkMRMLTransPerinealRobotProbeTemplateNode::FindHole(double targetX, double targetY, double targetZ,
+int vtkMRMLIGTProbeTemplateNode::FindHole(double targetX, double targetY, double targetZ,
                                                        int& nearest_i, int& nearest_j, double& nearest_depth,
                                                        double& errorX, double& errorY, double& errorZ)
 {

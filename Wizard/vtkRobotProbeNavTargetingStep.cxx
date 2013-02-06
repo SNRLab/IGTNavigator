@@ -60,7 +60,7 @@
 #include "vtkKWCheckButton.h"
 
 // 1/22/2012 ayamada
-#include "vtkMRMLTransPerinealRobotProbeRobotNode.h"
+#include "vtkMRMLIGTProbeRobotNode.h"
 
 // 1/26/2012 ayamada
 #include "vtkKWTkUtilities.h"
